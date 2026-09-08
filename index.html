@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আয়বাড়ি (AyBari) - অল-ইন-ওয়ান প্ল্যাটফর্ম</title>
+    <!-- FontAwesome Icon-এর জন্য লিংক -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        /* CSS রিসেট এবং গ্লোবাল স্টাইল */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ১. নেভিগেশন বার */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2ecc71;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        .nav-links a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #2ecc71;
+        }
+
+        /* ২. হিরো ব্যানার সেকশন */
+        .hero {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        /* 🔍 নতুন সার্চ বার সেকশন */
+        .search-container {
+            max-width: 500px;
+            margin: -30px auto 40px auto; /* ব্যানার থেকে কিছুটা উপরে থাকবে */
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .search-box {
+            display: flex;
+            background: white;
+            padding: 6px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 30px;
+        }
+        .search-box button {
+            background: #2ecc71;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .search-box button:hover {
+            background: #27ae60;
+        }
+
+        /* ৩. মেইন কনটেন্ট ও গ্রিড লেআউট */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background-color: #2ecc71;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .card .icon {
+            font-size: 40px;
+            color: #2ecc71;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .card p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .card .card-btn {
+            background-color: #2ecc71;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .card .card-btn:hover {
+            background-color: #27ae60;
+        }
+
+        /* নো রেজাল্ট মেসেজ স্টাইল */
+        #no-match {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* ৪. ফুটার */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        /* রেসপন্সিভ ডিজাইন (মোবাইলের জন্য) */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ১. নেভিগেশন বার সেকশন -->
+    <header>
+        <nav class="nav-container">
+            <div class="logo">আয়বাড়ি <span style="color:#27ae60;">.</span></div>
+            <ul class="nav-links">
+                <li><a href="#"><i class="fa-solid fa-house"></i> হোম</a></li>
+                <li><a href="#market"><i class="fa-solid fa-shop"></i> মার্কেট</a></li>
+                <li><a href="#blog"><i class="fa-solid fa-blog"></i> ব্লগ</a></li>
+                <li><a href="#videos"><i class="fa-solid fa-video"></i> ভিডিও</a></li>
+                <li><a href="#services"><i class="fa-solid fa-link"></i> সেবা</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ২. হিরো বা ব্যানার সেকশন -->
+    <section class="hero">
+        <h1>আয়বাড়ি প্ল্যাটফর্মে আপনাকে স্বাগতম</h1>
+        <p>পণ্য কিনুন, তথ্যবহুল ব্লগ পড়ুন এবং ঘরে বসে আয়ের সঠিক গাইডলাইন পান।</p>
+    </section>
+
+    <!-- 🔍 সার্চ বার সেকশন -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="কী খুঁজছেন? (যেমন: ব্লগ, পণ্য, ভিডিও)..." onkeyup="searchFeatures()">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </div>
+
+    <!-- ৩. মেইন ফিচার সেকশন -->
+    <main class="main-container">
+        <h2 class="section-title">আমাদের সেবাসমূহ</h2>
+        
+        <div class="features-grid" id="features-grid">
+            <!-- কার্ড ১: অনলাইন মার্কেট -->
+            <div class="card" id="market">
+                <div class="icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                <h3>অনলাইন মার্কেট (পণ্য)</h3>
+                <p>আমাদের প্রিমিয়াম এবং দরকারি পণ্যগুলো সহজে অর্ডার করুন এখান থেকেই।</p>
+                <a href="#" class="card-btn">বাজার করুন</a>
+            </div>
+
+            <!-- কার্ড ২: ব্লগ সেকশন -->
+            <div class="card" id="blog">
+                <div class="icon"><i class="fa-solid fa-newspaper"></i></div>
+                <h3>তথ্যবহুল ব্লগ আর্টিকেল</h3>
+                <p>অনলাইন ইনকাম, ফ্রিল্যান্সিং এবং টেকনোলজি বিষয়ক দরকারি সব আর্টিকেল ও টিপস।</p>
+                <a href="#" class="card-btn">ব্লগ পড়ুন</a>
+            </div>
+
+            <!-- কার্ড ৩: ভিডিও হাব -->
+            <div class="card" id="videos">
+                <div class="icon"><i class="fa-solid fa-play"></i></div>
+                <h3>ভিডিও টিউটোরিয়াল</h3>
+                <p>সহজ ভাষায় কাজের প্র্যাক্টিক্যাল ভিডিও গাইডলাইন দেখে কাজ শিখুন।</p>
+                <a href="#" class="card-btn">ভিডিও দেখুন</a>
+            </div>
+
+            <!-- কার্ড ৪: গুরুত্বপূর্ণ সেবা -->
+            <div class="card" id="services">
+                <div class="icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                <h3>জরুরি সেবা ও লিংক</h3>
+                <p>আপনার প্রয়োজনীয় বিভিন্ন জরুরি সেবাসমূহ এবং গুরুত্বপূর্ণ ওয়েবসাইটের তালিকা।</p>
+                <a href="#" class="card-btn">সেবা নিন</a>
+            </div>
+        </div>
+        <!-- কিছু খুঁজে না পাওয়া গেলে এই লেখাটি দেখাবে -->
+        <div id="no-match">আপনার খোঁজা বিষয়টি পাওয়া যায়নি! অন্য কিছু লিখে চেষ্টা করুন।</div>
+    </main>
+
+    <!-- ৪. ফুটার সেকশন -->
+    <footer>
+        <p>&copy; 2026 আয়বাড়ি (AyBari). All Rights Reserved | Developed by Shujon88</p>
+    </footer>
+
+    <!-- ⚙️ সার্চ কার্যকর করার জন্য জাভাস্ক্রিপ্ট কোড -->
+    <script>
+        function searchFeatures() {
+            let input = document.getElementById('search-input').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+            let matched = false;
+
+            for (let i = 0; i < cards.length; i++) {
+                // কার্ডের ভেতরের টাইটেল (h3) এবং প্যারাগ্রাফ (p) এর লেখা চেক করা হচ্ছে
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                let desc = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+
+                if (title.includes(input) || desc.includes(input)) {
+                    cards[i].style.display = "block"; // মিলে গেলে দেখাবে
+                    matched = true;
+                } else {
+                    cards[i].style.display = "none";  // না মিললে লুকিয়ে ফেলবে
+                }
+            }
+

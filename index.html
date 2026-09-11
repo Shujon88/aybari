@@ -927,25 +927,33 @@
 
 <script>
 function searchCards() {
-    const input = document.getElementById("searchInput").value.toLowerCase().trim();
+    const input = document.getElementById("searchInput");
 
-    const items = document.querySelectorAll(
-        "#cardContainer .card, #market .product-card, #articles .article-card"
-    );
+    if (!input) return;
 
+    const query = input.value.trim().toLowerCase();
+
+    const cards = document.querySelectorAll(".card");
     let found = false;
 
-    items.forEach(function(item) {
-        const text = item.innerText.toLowerCase();
-        const match = !input || text.includes(input);
-        item.style.display = match ? "" : "none";
-        if (match) found = true;
+    cards.forEach(function(card) {
+        const text = card.innerText.toLowerCase();
+
+        if (query === "" || text.includes(query)) {
+            card.style.display = "";
+            found = true;
+        } else {
+            card.style.display = "none";
+        }
     });
 
-    document.getElementById("no-match").style.display =
-        found ? "none" : "block";
+    const noMatch = document.getElementById("no-match");
+
+    if (noMatch) {
+        noMatch.style.display = found ? "none" : "block";
+        noMatch.innerText = "দুঃখিত, কোনো তথ্য পাওয়া যায়নি।";
+    }
 }
 </script>
-
 </body>
 </html>

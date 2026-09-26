@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="আয়বাড়ি ব্লগ — অনলাইন আয়, ফ্রিল্যান্সিং, অ্যাফিলিয়েট মার্কেটিং, প্রযুক্তি ও প্রয়োজনীয় তথ্যের বাংলা আর্টিকেল।">
+
+    <meta name="keywords"
+        content="অনলাইন আয়, ফ্রিল্যান্সিং, অ্যাফিলিয়েট মার্কেটিং, বাংলা ব্লগ, আয়বাড়ি, অনলাইন ইনকাম">
+
+    <meta name="author" content="AyBari">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+        href="https://shujon88.github.io/aybari/blog.html">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title"
+        content="ব্লগ | আয়বাড়ি">
+
+    <meta property="og:description"
+        content="অনলাইন আয়, ফ্রিল্যান্সিং, অ্যাফিলিয়েট মার্কেটিং ও প্রয়োজনীয় তথ্যের বাংলা আর্টিকেল।">
+
+    <meta property="og:url"
+        content="https://shujon88.github.io/aybari/blog.html">
+
+    <title>ব্লগ | আয়বাড়ি</title>
+
+
+    <style>
+
+        /* ========================================
+           BASIC SETTINGS
+        ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                "Noto Sans Bengali",
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #f4f8f7;
+
+            color: #263238;
+
+            line-height: 1.8;
+
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ========================================
+           HEADER
+        ======================================== */
+
+        header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f766e,
+                    #115e59
+                );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 32px 15px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.12);
+        }
+
+        header h1 {
+            font-size: 34px;
+
+            margin-bottom: 5px;
+
+            font-weight: 800;
+        }
+
+        header p {
+            font-size: 16px;
+
+            opacity: 0.95;
+        }
+
+
+        /* ========================================
+           MAIN CONTAINER
+        ======================================== */
+
+        .container {
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 30px auto;
+
+            padding: 0 15px;
+        }
+
+
+        /* ========================================
+           BLOG INTRO
+        ======================================== */
+
+        .blog-intro {
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .blog-intro h2 {
+            color: #0f766e;
+
+            font-size: 30px;
+
+            margin-bottom: 5px;
+
+            font-weight: 800;
+        }
+
+        .blog-intro p {
+            color: #666;
+
+            font-size: 15px;
+        }
+
+
+        /* ========================================
+           SMALL DECORATIVE LINE
+        ======================================== */
+
+        .title-line {
+            width: 55px;
+
+            height: 4px;
+
+            background: #0f766e;
+
+            border-radius: 10px;
+
+            margin: 12px auto 0;
+        }
+
+
+        /* ========================================
+           ARTICLE LIST BOX
+        ======================================== */
+
+        .article-list {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 8px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+
+            overflow: hidden;
+        }
+
+
+        /* ========================================
+           ARTICLE ITEM
+        ======================================== */
+
+        .article-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            padding: 22px 18px;
+
+            border-bottom:
+                1px solid #e5e5e5;
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+        }
+
+        .article-item:hover {
+            background: #f0fdfa;
+
+            transform: translateX(3px);
+        }
+
+
+        /* ========================================
+           NUMBER CIRCLE
+        ======================================== */
+
+        .number {
+            flex-shrink: 0;
+
+            width: 58px;
+
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f766e,
+                    #115e59
+                );
+
+            color: white;
+
+            border-radius: 50%;
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 4px 10px
+                rgba(15,118,110,0.25);
+        }
+
+
+        /* ========================================
+           ARTICLE CONTENT
+        ======================================== */
+
+        .article-content {
+            flex: 1;
+
+            min-width: 0;
+        }
+
+
+        /* ========================================
+           ARTICLE HEADLINE
+        ======================================== */
+
+        .article-content a.article-title {
+            display: block;
+
+            color: #263238;
+
+            font-size: 21px;
+
+            font-weight: 800;
+
+            line-height: 1.55;
+
+            transition:
+                color 0.2s ease;
+        }
+
+        .article-content a.article-title:hover {
+            color: #0f766e;
+        }
+
+
+        /* ========================================
+           READ MORE
+        ======================================== */
+
+        .read-more {
+            display: inline-block;
+
+            color: #0f766e;
+
+            font-size: 15px;
+
+            margin-top: 6px;
+
+            font-weight: 700;
+
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .article-item:hover .read-more {
+            color: #115e59;
+        }
+
+
+        /* ========================================
+           ARTICLE 6 SPECIAL
+        ======================================== */
+
+        .article-item.featured {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f0fdfa,
+                    #ecfdf5
+                );
+        }
+
+        .article-item.featured:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #e6fffa,
+                    #dcfce7
+                );
+        }
+
+
+        /* ========================================
+           HOME BUTTON
+        ======================================== */
+
+        .home-button {
+            text-align: center;
+
+            margin: 35px 0;
+        }
+
+        .home-button a {
+            display: inline-block;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f766e,
+                    #115e59
+                );
+
+            color: white;
+
+            padding: 13px 25px;
+
+            border-radius: 9px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 4px 10px
+                rgba(15,118,110,0.20);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .home-button a:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 7px 15px
+                rgba(15,118,110,0.25);
+        }
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        footer {
+            background: #263238;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 22px 10px;
+
+            margin-top: 40px;
+
+            font-size: 14px;
+        }
+
+
+        /* ========================================
+           MOBILE RESPONSIVE
+        ======================================== */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 25px 12px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+
+            .container {
+                padding: 0 10px;
+
+                margin-top: 22px;
+            }
+
+
+            .blog-intro {
+                margin-bottom: 20px;
+            }
+
+            .blog-intro h2 {
+                font-size: 25px;
+            }
+
+            .blog-intro p {
+                font-size: 14px;
+            }
+
+
+            .article-list {
+                border-radius: 16px;
+
+                padding: 5px;
+            }
+
+
+            .article-item {
+                gap: 13px;
+
+                padding: 19px 10px;
+            }
+
+
+            .number {
+                width: 48px;
+
+                height: 48px;
+
+                font-size: 18px;
+            }
+
+
+            .article-content a.article-title {
+                font-size: 18px;
+
+                line-height: 1.55;
+            }
+
+
+            .read-more {
+                font-size: 13px;
+
+                margin-top: 5px;
+            }
+
+
+            .home-button {
+                margin: 28px 0;
+            }
+
+            .home-button a {
+                padding: 11px 20px;
+
+                font-size: 14px;
+            }
+
+        }
+
+
+        /* ========================================
+           VERY SMALL MOBILE
+        ======================================== */
+
+        @media (max-width: 380px) {
+
+            .article-item {
+                gap: 10px;
+
+                padding: 16px 8px;
+            }
+
+            .number {
+                width: 43px;
+
+                height: 43px;
+
+                font-size: 16px;
+            }
+
+            .article-content a.article-title {
+                font-size: 16px;
+            }
+
+            .read-more {
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body id="top">
+
+
+    <!-- ========================================
+         HEADER
+    ========================================= -->
+
+    <header>
+
+        <h1>আয়বাড়ি</h1>
+
+        <p>
+            অনলাইন আয় ও প্রয়োজনীয় তথ্যের সহজ ঠিকানা
+        </p>
+
+    </header>
+
+
+
+    <!-- ========================================
+         MAIN CONTENT
+    ========================================= -->
+
+    <main class="container">
+
+
+        <!-- BLOG INTRO -->
+
+        <div class="blog-intro">
+
+            <h2>
+                📝 আমাদের ব্লগ
+            </h2>
+
+            <p>
+                নিচের যেকোনো শিরোনামে ক্লিক করে সম্পূর্ণ আর্টিকেল পড়ুন
+            </p>
+
+            <div class="title-line"></div>
+
+        </div>
+
+
+
+        <!-- ========================================
+             ARTICLE LIST
+        ========================================= -->
+
+        <div class="article-list">
+
+
+            <!-- ==================================
+                 ARTICLE 1
+            ================================== -->
+
+            <div class="article-item">
+
+                <div class="number">
+                    ১
+                </div>
+
+                <div class="article-content">
+
+                    <a
+                        href="article1.html"
+                        class="article-title"
+                    >
+                        মোবাইল দিয়ে অনলাইনে আয় করার ১০টি বাস্তব উপায়
+                    </a>
+
+                    <a
+                        href="article1.html"
+                        class="read-more"
+                    >
+                        সম্পূর্ণ আর্টিকেল পড়ুন →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 ARTICLE 2
+            ================================== -->
+
+            <div class="article-item">
+
+                <div class="number">
+                    ২
+                </div>
+
+                <div class="article-content">
+
+                    <a
+                        href="article2.html"
+                        class="article-title"
+                    >
+                        ফ্রিল্যান্সারদের জন্য প্রয়োজনীয় তথ্য
+                    </a>
+
+                    <a
+                        href="article2.html"
+                        class="read-more"
+                    >
+                        সম্পূর্ণ আর্টিকেল পড়ুন →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 ARTICLE 3
+            ================================== -->
+
+            <div class="article-item">
+
+                <div class="number">
+                    ৩
+                </div>
+
+                <div class="article-content">
+
+                    <a
+                        href="article3.html"
+                        class="article-title"
+                    >
+                        নতুনদের জন্য ফ্রিল্যান্সিং শুরু করার গাইড
+                    </a>
+
+                    <a
+                        href="article3.html"
+                        class="read-more"
+                    >
+                        সম্পূর্ণ আর্টিকেল পড়ুন →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 ARTICLE 4
+            ================================== -->
+
+            <div class="article-item">
+
+                <div class="number">
+                    ৪
+                </div>
+
+                <div class="article-content">
+
+                    <a
+                        href="article4.html"
+                        class="article-title"
+                    >
+                        ঘরে বসে অনলাইনে কাজ করার সহজ উপায়
+                    </a>
+
+                    <a
+                        href="article4.html"
+                        class="read-more"
+                    >
+                        সম্পূর্ণ আর্টিকেল পড়ুন →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 ARTICLE 5
+            ================================== -->
+
+            <div class="article-item">
+
+                <div class="number">
+                    ৫
+                </div>
+
+                <div class="article-content">
+
+                    <a
+                        href="article5.html"
+                        class="article-title"
+                    >
+                        অনলাইনে আয় করার সময় যেসব ভুল এড়িয়ে চলবেন
+                    </a>
+
+                    <a
+                        href="article5.html"
+                        class="read-more"
+                    >
+                        সম্পূর্ণ আর্টিকেল পড়ুন →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 ARTICLE 6
+                 IMPORTANT
+            ================================== -->
+
+            <div class="article-item featured">
+
+                <div class="number">
+                    ৬
+                </div>
+
+                <div class="article-content">
+
+                    <a
+                        href="article6.html"
+                        class="article-title"
+                    >
+                        নতুনদের জন্য অ্যাফিলিয়েট মার্কেটিং শুরু করার সম্পূর্ণ গাইড
+                    </a>
+
+                    <a
+                        href="article6.html"
+                        class="read-more"
+                    >
+                        সম্পূর্ণ আর্টিকেল পড়ুন →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ========================================
+             HOME BUTTON
+        ========================================= -->
+
+        <div class="home-button">
+
+            <a href="index.html">
+                ← হোম পেজে ফিরে যান
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        © 2026 আয়বাড়ি | সর্বস্বত্ব সংরক্ষিত
+
+    </footer>
+
+
+</body>
+</html>
